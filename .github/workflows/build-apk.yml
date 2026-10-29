@@ -30,12 +30,13 @@ jobs:
           gradle-version: '8.9'
 
       - name: Build debug APK
+        working-directory: CampusQuest-Android
         run: gradle --no-daemon assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: CampusQuest-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: CampusQuest-Android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
